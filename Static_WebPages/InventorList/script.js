@@ -45,6 +45,7 @@ const inventors = {
 const selectEl = document.getElementById("inventorSelect");
 const imgEl = document.getElementById("inventorPhoto");
 const descEl = document.getElementById("inventorDesc");
+const photoWrap = document.querySelector('.photo-circle');
 
 selectEl.addEventListener("change", function () {
     const key = this.value;
@@ -57,4 +58,13 @@ selectEl.addEventListener("change", function () {
     const inv = inventors[key];
     imgEl.src = inv.photo;
     descEl.textContent = inv.text;
+    // If James Gosling is selected, show his photo in a square (no border-radius).
+    // For all others, ensure the photo wrapper remains circular.
+    if (photoWrap) {
+        if (key === 'gosling') {
+            photoWrap.style.borderRadius = '8px';
+        } else {
+            photoWrap.style.borderRadius = '50%';
+        }
+    }
 });
