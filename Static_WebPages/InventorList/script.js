@@ -66,5 +66,6 @@ selectEl.addEventListener("change", function () {
         } else {
             photoWrap.style.borderRadius = '50%';
         }
+        
     }
 });
